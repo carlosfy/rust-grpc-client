@@ -20,7 +20,7 @@ message AudioMessage {
 
 // Sent once at the beginning of the stream
 message AudioMetadata {
-    int32 sample_rate = 1;
+    uint32 sample_rate = 1;
     int32 channels = 2;
     int32 bit_depth = 3;
 }

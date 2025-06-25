@@ -7,6 +7,7 @@ edition = "2024" # Check
 hound = "3.4" # A simple Wav reader
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 tonic = "0.8"
+tokio-stream = "0.1"
 futures-util = "0.3" 
 prost = "0.11"
 

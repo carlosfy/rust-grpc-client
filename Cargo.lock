@@ -740,6 +740,7 @@ dependencies = [
  "hound",
  "prost",
  "tokio",
+ "tokio-stream",
  "tonic",
  "tonic-build",
 ]
