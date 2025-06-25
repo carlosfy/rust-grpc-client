@@ -1,0 +1,14 @@
+[package]
+name = "rust-grpc-client"
+version = "0.1.0"
+edition = "2024" # Check 
+
+[dependencies]
+hound = "3.4" # A simple Wav reader
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+tonic = "0.8"
+futures-util = "0.3" 
+prost = "0.11"
+
+[build-dependencies]
+tonic-build = "0.8"

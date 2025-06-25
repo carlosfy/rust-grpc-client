@@ -1,0 +1,37 @@
+// audio_service.proto
+syntax = "proto3";
+
+package audio; 
+
+// The main service definition
+service AudioProcessor {
+    // A bidirectional streaming RPC
+    // The client streams audio messages, the server streams back text results.
+    rpc ProcessAudio(stream AudioMessage) returns (stream TextResult);
+}
+
+// The message the client sends to the server
+message AudioMessage {
+    oneof message_type {
+        AudioMetadata metadata = 1;
+        AudioChunk chunk = 2;
+    }
+}
+
+// Sent once at the beginning of the stream
+message AudioMetadata {
+    int32 sample_rate = 1;
+    int32 channels = 2;
+    int32 bit_depth = 3;
+}
+
+// A chunk of PCM audio data;
+message AudioChunk {
+    bytes pcm_data = 1; 
+}
+
+// The message the server returns to the client
+message TextResult { 
+    string text_chunk = 1;
+}
+
