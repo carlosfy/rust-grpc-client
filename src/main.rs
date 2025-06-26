@@ -5,7 +5,7 @@ use tokio_stream::wrappers::ReceiverStream;
 use tonic::Request;
 use tonic::metadata; // For .next()
 
-use crate::audio::{AudioMessage, AudioMetadata, audio_processor_client::AudioProcessorClient};
+use crate::audio::{AudioMessage, AudioMetadata, carlos_client::CarlosClient};
 
 pub mod audio {
     tonic::include_proto!("audio");
@@ -16,7 +16,7 @@ const CHUNK_SIZE: usize = 1024 * 64;
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // -- Connect to the server --
-    let mut client = AudioProcessorClient::connect("http://[::1]:50051").await?;
+    let mut client = CarlosClient::connect("http://[::1]:50051").await?;
 
     // Preapare the audio data stream
     let (tx, rx) = mpsc::channel(4);

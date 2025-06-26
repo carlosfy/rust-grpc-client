@@ -4,7 +4,7 @@ syntax = "proto3";
 package audio; 
 
 // The main service definition
-service AudioProcessor {
+service Carlos {
     // A bidirectional streaming RPC
     // The client streams audio messages, the server streams back text results.
     rpc ProcessAudio(stream AudioMessage) returns (stream TextResult);
